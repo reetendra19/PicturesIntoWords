@@ -5,6 +5,7 @@ class Controllers extends CI_Controller
 
 	public function __construct()
 	{
+		// universal loaders
 		parent:: __construct();
 		$this->load->model('user');
 		$this->load->library('form_validation');
