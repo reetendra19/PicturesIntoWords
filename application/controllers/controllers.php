@@ -7,7 +7,7 @@ class Controllers extends CI_Controller
 	{
 		// universal loaders
 		parent:: __construct();
-		$this->load->model('user');
+		// $this->load->model('user');
 		$this->load->library('form_validation');
 	}
 
@@ -32,9 +32,9 @@ class Controllers extends CI_Controller
 		else
 		{
 			// transfer the post info into variables:
-			$name = mysql_real_escape_string($this->input->post('name'));
-			$email = mysql_real_escape_string($this->input->post('email'));
-			$password = mysql_real_escape_string($this->input->post('password'));
+			// $name = mysql_real_escape_string($this->input->post('name'));
+			// $email = mysql_real_escape_string($this->input->post('email'));
+			// $password = mysql_real_escape_string($this->input->post('password'));
 
 			// put into a hash array:
 			$data = array('name' => $name, 'email' => $email, 'password' => $password);
@@ -55,8 +55,8 @@ class Controllers extends CI_Controller
 		}
 
 		// transfer post info into variables:
-		$email = mysql_real_escape_string($this->input->post('email'));
-		$password = mysql_real_escape_string($this->input->post('password'));
+		// $email = mysql_real_escape_string($this->input->post('email'));
+		// $password = mysql_real_escape_string($this->input->post('password'));
 
 		// put into a hash array:
 		$data = array('email' => $email, 'password' => $password);
@@ -90,7 +90,7 @@ class Controllers extends CI_Controller
 		//first submission - typing
 		if($option == 'entry')
 		{
-			$typing = mysql_real_escape_string($this->input->post('user_input'));
+			// $typing = mysql_real_escape_string($this->input->post('user_input'));
 			$user_id = $this->session->userdata('current_user')['id'];
 			$picture_id = $this->session->userdata('counter');
 			$default_id = $this->session->userdata('counter');

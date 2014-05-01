@@ -191,6 +191,7 @@ if (defined('ENVIRONMENT'))
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
 
+	/*
 	// URLizer service
 	require 'vendor/midgard/midgardmvc-helper-urlize/interface.php';
 	if (isset($_GET['urlize'])) {
@@ -211,7 +212,7 @@ if (defined('ENVIRONMENT'))
 	    <input type="submit" value="URLize" />
 	</form>
 	<?
-
+	*/
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
