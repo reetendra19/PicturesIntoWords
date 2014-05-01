@@ -1,0 +1,8 @@
+{
+
+    "name": "php 5.3.0", 
+    "description": "php version",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
