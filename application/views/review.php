@@ -34,9 +34,10 @@
 				<tr>
 					<td><img class='small' src='/assets/img/01-".$value['id'].".jpg'>
 					</td>
-					<td class='responsereview'><p><input type='radio' name='vote".$value['id']."' value='1'> ".$value['default_descr']."<br>
-						<input type='radio' name='vote".$value['id']."' value='2'> ".$value['typing']."<br>
-						<input type='radio' name='vote".$value['id']."' value='3'> They are equivalent</p>
+					<input type='hidden' name='picture_id' value='".$value['id']."'>
+					<td class='responsereview'><p><input type='radio' name='".$value['id']."' value='1'> ".$value['default_descr']."<br>
+						<input type='radio' name='".$value['id']."' value='2'> ".$value['typing']."<br>
+						<input type='radio' name='".$value['id']."' value='3'> They are equivalent</p>
 					</td>
 				</tr>
 					";

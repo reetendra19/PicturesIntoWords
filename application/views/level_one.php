@@ -63,10 +63,14 @@
 	{
 		echo"<script type='text/javascript'>alert('New user registered!');</script>";
 	} ?>
-	<h1><?php 
+	<h4>Logged in as 
+		<?php 
 		$current_user = $this->session->userdata('current_user');
 		echo $current_user['name'];
-		?>: Level One</h1>
+		?>
+	</h4>
+	<h1>Level One</h1>
+
 
 
 	<div class='container'>

@@ -3,14 +3,6 @@
 class Controllers extends CI_Controller 
 {
 
-	public function __construct()
-	{
-		// universal loaders
-		parent:: __construct();
-		// $this->load->model('user');
-		$this->load->library('form_validation');
-	}
-
 	public function index()
 	{
 		$this->session->unset_userdata('counter');
@@ -32,14 +24,15 @@ class Controllers extends CI_Controller
 		else
 		{
 			// transfer the post info into variables:
-			// $name = mysql_real_escape_string($this->input->post('name'));
-			// $email = mysql_real_escape_string($this->input->post('email'));
-			// $password = mysql_real_escape_string($this->input->post('password'));
+			$name = mysql_real_escape_string($this->input->post('name'));
+			$email = mysql_real_escape_string($this->input->post('email'));
+			$password = mysql_real_escape_string($this->input->post('password'));
 
 			// put into a hash array:
 			$data = array('name' => $name, 'email' => $email, 'password' => $password);
 
 			//run the array through the 'User' method 'register':
+			$this->load->model('user');
 			$this->user->register($data);
 		
 			// go directly to the login method:
@@ -55,13 +48,14 @@ class Controllers extends CI_Controller
 		}
 
 		// transfer post info into variables:
-		// $email = mysql_real_escape_string($this->input->post('email'));
-		// $password = mysql_real_escape_string($this->input->post('password'));
+		$email = mysql_real_escape_string($this->input->post('email'));
+		$password = mysql_real_escape_string($this->input->post('password'));
 
 		// put into a hash array:
 		$data = array('email' => $email, 'password' => $password);
 	
 		// run array through 'User' method 'login', put results in variable $current_user:
+		$this->load->model('user');
 		$current_user = $this->user->login($data);
 
 		if($current_user) // IF USER EXISTS GO FORWARD --------------------->
@@ -73,7 +67,7 @@ class Controllers extends CI_Controller
 		}
 		else // if login credentials don't match database	
 		{
-			$this->session->set_flashdata('loginerrors', "Can't find user in database.<br>Try again? Need to register?");
+			$this->session->set_flashdata('loginerrors', "Invalid email/password combination.<br>Try again? Need to register?");
 			redirect(base_url('/controllers/index'));
 		}
 	}
@@ -87,11 +81,14 @@ class Controllers extends CI_Controller
 
 	public function process_ex1($option)
 	{
+		$this->load->model('user');
+
 		//first submission - typing
 		if($option == 'entry')
 		{
-			// $typing = mysql_real_escape_string($this->input->post('user_input'));
-			$user_id = $this->session->userdata('current_user')['id'];
+			$typing = mysql_real_escape_string($this->input->post('user_input'));
+			$user = $this->session->userdata('current_user');
+			$user_id = $user['id'];
 			$picture_id = $this->session->userdata('counter');
 			$default_id = $this->session->userdata('counter');
 			$data = array('typing' => $typing, 'user_id' => $user_id, 'picture_id' => $picture_id, 'default_id' => $default_id);
@@ -116,7 +113,8 @@ class Controllers extends CI_Controller
 		{
 			$vote = $this->input->post('vote');
 			$data['vote'] = $vote;
-			$data['user_id'] = $this->session->userdata('current_user')['id'];
+			$user = $this->session->userdata('current_user');
+			$data['user_id'] = $user['id'];
 			$data['picture_id'] = $this->session->userdata('counter');
 
 			$this->user->vote($data);
@@ -132,10 +130,12 @@ class Controllers extends CI_Controller
 
 	public function review($choice)
 	{
+		$this->load->model('user');
 
 	// Insert the last 'Next' vote: -------------
 		$data['vote'] = $choice;
-		$data['user_id'] = $this->session->userdata('current_user')['id'];
+		$user = $this->session->userdata('current_user');
+		$data['user_id'] = $user['id'];
 		$data['picture_id'] = $this->session->userdata('counter');
 
 		$this->user->vote($data);
@@ -145,18 +145,23 @@ class Controllers extends CI_Controller
 		$defaults['defaults'] = $this->user->display($data);
 
 		// get user inputs for review page:
-		// $userinputs['typing'] = $this->user->display($data);
+		$userinputs['typing'] = $this->user->display($data);
 
 		$this->load->view('review', $defaults);
 	}
 
 	public function checkpoint()
 	{
+		// echo "Contents of this input post:";
 		// var_dump($this->input->post());
 		// die();
-		// $data['vote'] = $this->input->post('');
-		// $data['user_id'] = $this->session->userdata('current_user')['id'];
-		// $data['picture_id'] = $this->session->userdata('counter');
+		$data['vote'] = $this->input->post('');
+		$user = $this->session->userdata('current_user');
+		$data['user_id'] = $user['id'];
+		$data['picture_id'] = $this->session->userdata('counter');
+
+		$this->load->model('user');
+		$this->user->updatevote($data);
 
 		// $this->user->vote($data);
 		echo "<script type='text/javascript'>confirm('Submit your work for grading?')</script>";
@@ -173,13 +178,9 @@ class Controllers extends CI_Controller
 
 	public function logout()
 	{
-		
 		$this->session->sess_destroy();
-		echo "<script type='text/javascript'>alert('Building in progress - thanks for trying out the site so far.')</script>";
+		$this->index();
+		echo "<script type='text/javascript'>alert('Construction in progress - thanks for trying out the site so far.')</script>";
 	}
-
-
-
-
 }
 ?>

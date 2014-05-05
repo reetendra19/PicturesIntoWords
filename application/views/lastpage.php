@@ -14,7 +14,12 @@
 </head>
 <body>
 	<div class='container'>
-		<h1>Good work, <?php echo $this->session->userdata('current_user')['name']; ?></h1>
+		<h1>Good work, 
+			<?php 
+			$current_user = $this->session->userdata('current_user');
+			echo $current_user['name'];
+			?>
+		</h1>
 		<h3>What would you like to do next?</h3>
 		<ul id='checkpoint'>
 			<a href="/controllers/logout"><li>Advance to the next level</li></a>
