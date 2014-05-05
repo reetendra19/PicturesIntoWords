@@ -32,12 +32,15 @@
 				// 	 $value['vote'].'<br>';
 				echo"
 				<tr>
-					<td><img class='small' src='/assets/img/01-".$value['id'].".jpg'>
-					</td>
-					<input type='hidden' name='picture_id' value='".$value['id']."'>
-					<td class='responsereview'><p><input type='radio' name='".$value['id']."' value='1'> ".$value['default_descr']."<br>
-						<input type='radio' name='".$value['id']."' value='2'> ".$value['typing']."<br>
-						<input type='radio' name='".$value['id']."' value='3'> They are equivalent</p>
+					<td><img class='small' src='/assets/img/01-".$value['id'].".jpg'></td>
+
+						<input type='hidden' name='picture_id_".$value['id']."' value='".$value['id']."'>
+					<td class='responsereview'>
+						<p>
+						<input type='radio' name='vote_".$value['id']."' value='1'> ".$value['default_descr']."<br>
+						<input type='radio' name='vote_".$value['id']."' value='2'> ".$value['typing']."<br>
+						<input type='radio' name='vote_".$value['id']."' value='3'> They are equivalent
+						</p>
 					</td>
 				</tr>
 					";
@@ -74,6 +77,18 @@
 		</table>
  	</form>  -->
 <!-- END HARD-CODED REF EXAMPLES - - - - - - - - - - - - - - - - -  -->
+
+
+<!-- ANOTHER HARD-CODED ROW, BETTER THIS TIME, FROM THE LOOP THAT POSTS PICTURE ID PROPERLY: -->
+		    <!-- <tr>
+					<td><img class='small' src='/assets/img/01-".$value['id'].".jpg'></td>
+					<input type='hidden' name='picture_id_".$value['id']."' value='".$value['id']."'>
+					<td class='responsereview'><p><input type='radio' name='".$value['id']."' value='1'> ".$value['default_descr']."<br>
+						<input type='radio' name='".$value['id']."' value='2'> ".$value['typing']."<br>
+						<input type='radio' name='".$value['id']."' value='3'> They are equivalent</p>
+					</td>
+				</tr> -->
+<!-- END HARD-CODED ROW -->
 
 
 </body>

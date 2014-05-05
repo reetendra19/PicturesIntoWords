@@ -45,20 +45,24 @@
 
 		public function updatevote($data)
 		{
-			echo "Contents of dollar-data: (we're looking for vote, user_id, and picture_id)";
-			var_dump($data);
-			die();
+			// echo "Contents of dollar-data, sent from the controller to the model: (we're looking for vote, user_id, and picture_id)";
+			// var_dump($data);
+			// die();
 			// Update the entry made in typinginput, adding a preference vote of 1, 2 or 3 -
-			foreach ($data as $key => $value) 
-			{
 			
 				$query = "UPDATE userinputs 
-						  SET vote = '{$data['value']}'
+						  SET vote = '{$data['vote']}'
 						  WHERE user_id = '{$data['user_id']}'
-						  AND picture_id = '{$key}'";
+						  AND picture_id = '{$data['picture_id']}'";
 				$this->db->query($query);
 
-			}
+			// the query that works for one update:
+
+			// 	UPDATE userinputs 
+			// 	SET vote = '3'
+			// 	WHERE user_id = '5'
+			// 	AND picture_id = '9'
+
 		}
 
 		public function display($data)

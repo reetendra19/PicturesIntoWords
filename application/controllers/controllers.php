@@ -152,29 +152,61 @@ class Controllers extends CI_Controller
 
 	public function checkpoint()
 	{
-		// echo "Contents of this input post:";
+		// echo "Contents of 'this input post', from the Review page form to the checkpoint method in the controller:";
 		// var_dump($this->input->post());
 		// die();
-		$data['vote'] = $this->input->post('');
-		$user = $this->session->userdata('current_user');
-		$data['user_id'] = $user['id'];
-		$data['picture_id'] = $this->session->userdata('counter');
 
 		$this->load->model('user');
+
+		$user = $this->session->userdata('current_user');
+		$data['user_id'] = $user['id'];
+
+		$data['vote'] = $this->input->post('vote_1');
+		$data['picture_id'] = $this->input->post('picture_id_1');
 		$this->user->updatevote($data);
 
-		// $this->user->vote($data);
+		$data['vote'] = $this->input->post('vote_2');
+		$data['picture_id'] = $this->input->post('picture_id_2');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_3');
+		$data['picture_id'] = $this->input->post('picture_id_3');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_4');
+		$data['picture_id'] = $this->input->post('picture_id_4');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_5');
+		$data['picture_id'] = $this->input->post('picture_id_5');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_6');
+		$data['picture_id'] = $this->input->post('picture_id_6');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_7');
+		$data['picture_id'] = $this->input->post('picture_id_7');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_8');
+		$data['picture_id'] = $this->input->post('picture_id_8');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_9');
+		$data['picture_id'] = $this->input->post('picture_id_9');
+		$this->user->updatevote($data);
+
+		$data['vote'] = $this->input->post('vote_10');
+		$data['picture_id'] = $this->input->post('picture_id_10');
+		$this->user->updatevote($data);
+
 		echo "<script type='text/javascript'>confirm('Submit your work for grading?')</script>";
 
 		// $this->load->view('/controllers/checkpoint'));
 		// $this->checkpoint();
 		$this->load->view('lastpage');
 	}
-
-	// public function checkpoint()
-	// {
-	// 	$this->load->view('lastpage');
-	// }
 
 	public function logout()
 	{
