@@ -26,7 +26,7 @@
 					if(data.complete)
 					{	
 						// on 10th photo, new Next button:
-						$('#next').replaceWith("<a href='/controllers/review/'>Review</a>");
+						$('#next').replaceWith("<a style='text-decoration:underline;' href='/controllers/review/'>Next</a>");
 					}
 				}, 'json')
 				return false;
@@ -72,7 +72,6 @@
 	<h1>Level One</h1>
 
 
-
 	<div class='container'>
 	<!-- IMAGE DISPLAY: increments until 10th time -->
 		<div class='center'>
@@ -92,9 +91,12 @@
 		<div id='preference' class='center'>
 			<form id='comparison' action='/controllers/process_ex1/preference' method='post'>
 				<p>Which description do you prefer? (Check one)</p>
-				<p><input type='radio' name='vote' value='1'> <span id='defaultanswer'></span><br>
-				<input type='radio' name='vote' value='2'> <span id='whattheytyped'></span><br>
-				<input type='radio' name='vote' value='3'> The statements are equivalent</p>
+				<p><input type='radio' id='1' name='vote' value='1'> 
+					<label for='1'><span id='defaultanswer'></span></label><br>
+				<input type='radio' id='2' name='vote' value='2'> 
+					<label for='2'><span id='whattheytyped'></span></label><br>
+				<input type='radio' id='3' name='vote' value='3'> 
+					<label for='3'>The statements are equivalent</p></label>
 				<input id='next' type='submit' value='Next'>
 			<!-- 'Next' button above causes page refresh and next incremented photo; after 10th photo, 'Next' button leads to next view -->
 			</form>

@@ -145,7 +145,10 @@ class Controllers extends CI_Controller
 		$defaults['defaults'] = $this->user->display($data);
 
 		// get user inputs for review page:
-		$userinputs['typing'] = $this->user->display($data);
+		// $userinputs['typing'] = $this->user->display($data);
+
+		// get user vote for review page:
+		// $userinputs['vote'] = $this->user->display($data);
 
 		$this->load->view('review', $defaults);
 	}

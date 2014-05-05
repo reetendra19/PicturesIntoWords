@@ -33,6 +33,20 @@
 			return $this->db->query($query)->row_array();
 		}
 
+		public function display($data)
+		{
+			// get the default description and database id# of each picture (this query works)--
+			$query = "SELECT userinputs.*, pictures.default_descr, pictures.id
+					  FROM userinputs
+					  LEFT JOIN pictures
+					  ON userinputs.picture_id = pictures.id
+					  WHERE userinputs.user_id = '{$data['user_id']}' AND pictures.id BETWEEN 1 AND 10
+					  ORDER BY userinputs.created_at DESC
+					  LIMIT 10";
+		
+			return $this->db->query($query)->result_array();
+		}
+
 		public function vote($data)
 		{
 			// Inserts the preference vote of 1, 2 or 3 -
@@ -51,7 +65,7 @@
 			// Update the entry made in typinginput, adding a preference vote of 1, 2 or 3 -
 			
 				$query = "UPDATE userinputs 
-						  SET vote = '{$data['vote']}'
+						  SET vote = '{$data['vote']}', updated_at = NOW()
 						  WHERE user_id = '{$data['user_id']}'
 						  AND picture_id = '{$data['picture_id']}'";
 				$this->db->query($query);
@@ -63,20 +77,6 @@
 			// 	WHERE user_id = '5'
 			// 	AND picture_id = '9'
 
-		}
-
-		public function display($data)
-		{
-			// get the default description and database id# of each picture (this query works)--
-			$query = "SELECT userinputs.*, pictures.default_descr, pictures.id
-					  FROM userinputs
-					  LEFT JOIN pictures
-					  ON userinputs.picture_id = pictures.id
-					  WHERE userinputs.user_id = '{$data['user_id']}' AND pictures.id BETWEEN 1 AND 10
-					  ORDER BY userinputs.created_at DESC
-					  LIMIT 10";
-		
-			return $this->db->query($query)->result_array();
 		}
 
 		public function usersdisplay()
