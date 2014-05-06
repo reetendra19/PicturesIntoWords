@@ -11,26 +11,34 @@
 			$('#preference').hide();
 
 			$('#entry').submit(function()
-			{
-				$.post($(this).attr('action'), $(this).serialize(), function(data){
-					console.log(data);
-					// toggle the div visibility:
-					$('#preference').show();
-					$('#entry').hide();
-					// display user's entry: 
-					// (we want to make this db entry retrieval instead)
-					$('#whattheytyped').text(data.default_descr.typing);
-					// display db defaults retrieval:
-					$('#defaultanswer').text(data.default_descr.default_descr);
-					// clear radio buttons from #preference:
-					$("input:radio[name=vote]").prop('checked', false);
+			{	
+				console.log($('#typing').val().split(' ').length);
+				// if string is less than 15 words
+				if ($('#typing').val().split(' ').length > 15)
+				{
+					alert('Please limit your sentence to 15 words');
+				}
+				else
+				{
+					$.post($(this).attr('action'), $(this).serialize(), function(data){
+						console.log(data);
+						// toggle the div visibility:
+						$('#preference').show();
+						$('#entry').hide();
+						// display user's entry: 
+						$('#whattheytyped').text(data.default_descr.typing);
+						// display db defaults retrieval:
+						$('#defaultanswer').text(data.default_descr.default_descr);
+						// clear radio buttons from #preference:
+						$("input:radio[name=vote]").prop('checked', false);
 
-					if(data.complete)
-					{	
-						// on 10th photo, new Next button:
-						$('#next').replaceWith("<a style='text-decoration:underline;' href='/controllers/review/'>Next</a>");
-					}
-				}, 'json')
+						if(data.complete)
+						{	
+							// on 10th photo, new Next button:
+							$('#next').replaceWith("<a style='text-decoration:underline;' href='/controllers/review/'>Next</a>");
+						}
+					}, 'json')
+				}	
 				return false;
 			})
 
@@ -73,7 +81,7 @@
 		<!-- ENTRY form visible on page load, switches to hidden after 'Go' button -->
 		<form id='entry' class='center' action='/controllers/process_ex1/entry' method='post'>
 			<p>Describe what you see in this picture in no more than 15 words, using a complete sentence.</p>
-			<input class='user_input' type='text' name='user_input' spellcheck='true'>
+			<input class='user_input' id='typing' type='text' name='user_input' spellcheck='true'>
 			<input type='submit' value='Go'>
 		</form>
 

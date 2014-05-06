@@ -21,7 +21,7 @@
 		public function typinginput($data)
 		{
 			$query = "INSERT INTO userinputs (typing, user_id, picture_id, created_at, updated_at) 
-				VALUES ('{$data['typing']}', {$data['user_id']}, '{$data['picture_id']}', NOW(), NOW())";
+					  VALUES ('{$data['typing']}', {$data['user_id']}, '{$data['picture_id']}', NOW(), NOW())";
 			$this->db->query($query);
 		}
 
@@ -29,7 +29,7 @@
 		{
 			// retrieve the default description of the present pic:
 			// $query = "SELECT default_descr FROM pictures WHERE id = '{$data['picture_id']}'";
-			// retrieve the default description as well as the just-inputted user typing for the present pic:
+			// retrieve the default description as well as the just-entered user typing for the present pic:
 			$query = "SELECT typing, picture_id, default_descr
 					  FROM userinputs 
 					  LEFT JOIN pictures ON pictures.id = userinputs.picture_id 

@@ -102,6 +102,7 @@ class Controllers extends CI_Controller
 			$default_descr = $this->user->defaults($data);
 
 			$data['default_descr'] = $default_descr;
+		
 
 			if($this->session->userdata('counter') == 10)
 			{
@@ -113,7 +114,6 @@ class Controllers extends CI_Controller
 			}
 
 			echo json_encode($data);
-			
 		}
 		else  //second submission - vote
 		{
