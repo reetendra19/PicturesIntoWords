@@ -18,7 +18,7 @@
 	</h3>
 
 	<h1>Welcome to <em>Pictures Into Words</em></h1>
-	<div class='container'>
+	<div class='container' id='instructions'>
 		<p>
 			The purpose of this activity is to improve your ability to write effective sentences, using a time-tested method:  Writing a sentence that describes a picture, in no more than 15 words.
 		</p>

@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>AL414</title>
+	<title>AL414: Pictures Into Words</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 </head>
 <body>
 	<div class='container'>
-		<h1>Welcome to AL414</h1>
+		<h1>AL414</h1>
 		<div class='frontpage'>
 			<h2>New to us?  Register here:</h2>
 			<form action='/controllers/register' method='post'>
