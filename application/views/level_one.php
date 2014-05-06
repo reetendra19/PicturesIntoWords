@@ -59,18 +59,8 @@
 </head>
 
 <body>
-	<?php if($this->session->flashdata('newuser'))
-	{
-		echo"<script type='text/javascript'>alert('New user registered!');</script>";
-	} ?>
-	<h4>Logged in as 
-		<?php 
-		$current_user = $this->session->userdata('current_user');
-		echo $current_user['name'];
-		?>
-	</h4>
+	
 	<h1>Level One</h1>
-
 
 	<div class='container'>
 	<!-- IMAGE DISPLAY: increments until 10th time -->
@@ -78,10 +68,9 @@
 			<img src="/assets/img/01-1.jpg">
 		</div>
 
-
 		<!-- ENTRY form visible on page load, switches to hidden after 'Go' button -->
 		<form id='entry' class='center' action='/controllers/process_ex1/entry' method='post'>
-			<p>Describe what you see in this picture in no more than 15 words.</p>
+			<p>Describe what you see in this picture in no more than 15 words, using a complete sentence.</p>
 			<input class='user_input' type='text' name='user_input' spellcheck='true'>
 			<input type='submit' value='Go'>
 		</form>
@@ -90,7 +79,7 @@
 		<!-- PREFERENCE div hidden at page load, switches to visible after 'Go' button -->
 		<div id='preference' class='center'>
 			<form id='comparison' action='/controllers/process_ex1/preference' method='post'>
-				<p>Which description do you prefer? (Check one)</p>
+				<p>Which description do you feel is most effective? (Check one)</p>
 				<p><input type='radio' id='1' name='vote' value='1'> 
 					<label for='1'><span id='defaultanswer'></span></label><br>
 				<input type='radio' id='2' name='vote' value='2'> 

@@ -46,26 +46,29 @@
 					<td class='responsereview'>
 						<p>
 						<input type='radio' id='<?=$value['id']?>_1' name='vote_<?=$value['id']?>' value='1' 
-						<?php if ($value['vote']==1) 
-							{
-								echo 'checked="checked"';
-							} 
-						?>>
+							<?php if ($value['vote']==1) 
+								{
+									echo 'checked="checked"';
+								} 
+							?>
+						>
 						 
 							<label for='<?=$value['id']?>_1'><?=$value['default_descr']?></label><br>
 						<input type='radio' id='<?=$value['id']?>_2' name='vote_<?=$value['id']?>' value='2'
-						<?php if ($value['vote']==2) 
-							{
-								echo 'checked="checked"';
-							} 
-						?>>
+							<?php if ($value['vote']==2) 
+								{
+									echo 'checked="checked"';
+								} 
+							?>
+						>
 							<label for='<?=$value['id']?>_2'><?=$value['typing']?></label><br>
 						<input type='radio' id='<?=$value['id']?>_3' name='vote_<?=$value['id']?>' value='3' 
-						<?php if ($value['vote']==3) 
-							{
-								echo 'checked="checked"';
-							} 
-						?>>
+							<?php if ($value['vote']==3) 
+								{
+									echo 'checked="checked"';
+								} 
+							?>
+						>
 							<label for='<?=$value['id']?>_3'>They are equivalent</label>
 						</p>
 					</td>

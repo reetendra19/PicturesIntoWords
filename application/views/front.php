@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to AL414</title>
+	<title>AL414</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 </head>

@@ -12,7 +12,7 @@ class Controllers extends CI_Controller
 	public function register()
 	{
 		// go through filter checks, send error messages if necessary
-		$this->form_validation->set_rules('name', 'Name', 'trim|required|is_unique[users.name]|xss_clean');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('email', 'Email address', 'trim|required|valid_email|is_unique[users.email]|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|matches[Confirm]');
 
@@ -63,13 +63,18 @@ class Controllers extends CI_Controller
 			// set $current_user in userdata:
 			$this->session->set_userdata('current_user', $current_user);
 			// redirect to the method that renders the next view page:
-			redirect(base_url('/controllers/exercise1'));
+			redirect(base_url('/controllers/introduction'));
 		}
 		else // if login credentials don't match database	
 		{
 			$this->session->set_flashdata('loginerrors', "Invalid email/password combination.<br>Try again? Need to register?");
 			redirect(base_url('/controllers/index'));
 		}
+	}
+
+	public function introduction()
+	{
+		$this->load->view('instructions');
 	}
 
 	public function exercise1()
