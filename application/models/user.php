@@ -28,7 +28,13 @@
 		public function defaults($data)
 		{
 			// retrieve the default description of the present pic:
-			$query = "SELECT default_descr FROM pictures WHERE id = '{$data['picture_id']}'"; 
+			// $query = "SELECT default_descr FROM pictures WHERE id = '{$data['picture_id']}'";
+			// retrieve the default description as well as the just-inputted user typing for the present pic:
+			$query = "SELECT typing, picture_id, default_descr
+					  FROM userinputs 
+					  LEFT JOIN pictures ON pictures.id = userinputs.picture_id 
+					  WHERE user_id = '{$data['user_id']}' AND picture_id = '{$data['picture_id']}'
+					  ORDER BY userinputs.created_at DESC";
 
 			return $this->db->query($query)->row_array();
 		}

@@ -13,11 +13,13 @@
 			$('#entry').submit(function()
 			{
 				$.post($(this).attr('action'), $(this).serialize(), function(data){
+					console.log(data);
 					// toggle the div visibility:
 					$('#preference').show();
 					$('#entry').hide();
-					// display user's entry:
-					$('#whattheytyped').text(data.typing);
+					// display user's entry: 
+					// (we want to make this db entry retrieval instead)
+					$('#whattheytyped').text(data.default_descr.typing);
 					// display db defaults retrieval:
 					$('#defaultanswer').text(data.default_descr.default_descr);
 					// clear radio buttons from #preference:
@@ -74,7 +76,6 @@
 			<input class='user_input' type='text' name='user_input' spellcheck='true'>
 			<input type='submit' value='Go'>
 		</form>
-
 
 		<!-- PREFERENCE div hidden at page load, switches to visible after 'Go' button -->
 		<div id='preference' class='center'>

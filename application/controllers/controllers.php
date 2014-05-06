@@ -113,6 +113,7 @@ class Controllers extends CI_Controller
 			}
 
 			echo json_encode($data);
+			
 		}
 		else  //second submission - vote
 		{
