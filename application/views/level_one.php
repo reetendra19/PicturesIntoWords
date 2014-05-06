@@ -18,6 +18,10 @@
 				{
 					alert('Please limit your sentence to 15 words');
 				}
+				else if (!$('#typing').val())
+				{
+					alert('Please write something');
+				}
 				else
 				{
 					$.post($(this).attr('action'), $(this).serialize(), function(data){
@@ -34,6 +38,8 @@
 
 						if(data.complete)
 						{	
+							// see if I can put a no-vote stop-check here ===========
+
 							// on 10th photo, new Next button:
 							$('#next').replaceWith("<a style='text-decoration:underline;' href='/controllers/review/'>Next</a>");
 						}
@@ -44,17 +50,25 @@
 
 			$('#comparison').submit(function()
 			{
-				$.post($(this).attr('action'), $(this).serialize(), function(data){
-					// advance the picture:
-					new_source = "/assets/img/01-"+ data.count +".jpg";
-					$('img').attr('src', new_source);
-					// toggle div visibility back:
-					$('#preference').hide();
-					$('#entry').show();
-					// clear text entry box from #entry:
-					$('.user_input').val("");
-				}, 'json')
-				return false;	 
+				if (!$('input:radio[name=vote]:checked').val()) 
+				{
+					alert('Please make a choice')
+					return false;
+				}
+				else
+				{
+					$.post($(this).attr('action'), $(this).serialize(), function(data){
+						// advance the picture:
+						new_source = "/assets/img/01-"+ data.count +".jpg";
+						$('img').attr('src', new_source);
+						// toggle div visibility back:
+						$('#preference').hide();
+						$('#entry').show();
+						// clear text entry box from #entry:
+						$('.user_input').val("");
+					}, 'json')
+					return false;
+				} 
 			})
 
 			$(document).on('click', 'a', function()

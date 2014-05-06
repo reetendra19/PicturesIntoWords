@@ -115,7 +115,7 @@ class Controllers extends CI_Controller
 
 			echo json_encode($data);
 		}
-		else  //second submission - vote
+		else  //second submission, vote: $option == 'preference'
 		{
 			$vote = $this->input->post('vote');
 			$data['vote'] = $vote;
@@ -128,7 +128,7 @@ class Controllers extends CI_Controller
 			$count = $this->session->userdata('counter') + 1;
 			$this->session->set_userdata('counter', $count);
 			// temp test repl. for the line above:
-			// $this->session->set_userdata('counter', 10);
+			// $this->session->set_userdata('counter', 9);
 			$data['count'] = $count;
 			echo json_encode($data);
 		}
@@ -149,12 +149,6 @@ class Controllers extends CI_Controller
 		
 		// get default descriptions for review page:
 		$defaults['defaults'] = $this->user->display($data);
-
-		// get user inputs for review page:
-		// $userinputs['typing'] = $this->user->display($data);
-
-		// get user vote for review page:
-		// $userinputs['vote'] = $this->user->display($data);
 
 		$this->load->view('review', $defaults);
 	}
