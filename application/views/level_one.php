@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+
+	
 	<script type="text/javascript">
 		$(document).ready(function()
 		{
@@ -48,7 +50,7 @@
 						// clear radio buttons from #preference:
 						$("input:radio[name=vote]").prop('checked', false);
 
-						$('#wrds').text('15');
+						// $('#wrds').text('15');
 
 
 						if(data.complete)
@@ -81,11 +83,11 @@
 						$('.user_input').val("");
 					}, 'json')
 					return false;
-					
-					$('#entry').focus(function()
-						{
-							$('#wrds').text("{{15 - wordcount.split(' ').length}}");
-						})
+
+					// $('#entry').focus(function()
+					// 	{
+					// 		$('#wrds').text("{{15 - wordcount.split(' ').length}}");
+					// 	})
 				} 
 			})
 
@@ -98,13 +100,23 @@
 
 		}); 
 	</script>
+	<script>
+
+		function angController($scope){
+
+			$scope.countWords = function(){
+				$scope.wordcount = 15;
+			}
+		}
+
+	</script>
 </head>
 
 <body>
 	
 	<h1>Level One</h1>
 
-	<div class='container'>
+	<div class='container' ng-controller="angController">
 	<!-- IMAGE DISPLAY: increments until 10th time -->
 		<div class='center'>
 			<img src="/assets/img/01-1.jpg">
@@ -130,7 +142,7 @@
 					<label for='2'><span id='whattheytyped'></span></label><br>
 				<input type='radio' id='3' name='vote' value='3'> 
 					<label for='3'>The statements are equivalent</p></label>
-				<input id='next' type='submit' value='Next'>
+				<input id='next' type='submit' value='Next' ng-click="countWords()">
 			<!-- 'Next' button above causes page refresh and next incremented photo; after 10th photo, 'Next' button leads to next view -->
 			</form>
 
