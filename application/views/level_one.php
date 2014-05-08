@@ -9,7 +9,8 @@
 	<script type="text/javascript">
 		$(document).ready(function()
 		{
-			
+			var counter = 1;
+
 			$('#preference').hide();
 
 			$('#entry').submit(function()
@@ -65,6 +66,9 @@
 						$('#entry').show();
 						// clear text entry box from #entry:
 						$('.user_input').val("");
+
+						$('#piccount').text(++counter);
+						
 					}, 'json')
 					return false;
 				} 
@@ -89,7 +93,11 @@
 </head>
 
 <body>
-	
+	<h5 style='float:right;'>
+		Picture 
+		<span id='piccount'>1</span>
+		 of 10
+	</h5>
 	<h1>Level One</h1>
 
 	<div class='container' ng-controller="angController">
@@ -104,7 +112,7 @@
 			<input class='user_input' id='typing' type='text' name='user_input' spellcheck='true' ng-model='wordcount'>
 			<input type='submit' value='Go'>
 			<!-- Angular.js counts the words as you type -->
-			<p>You have <span id='wrds'>{{15 - wordcount.split(' ').length}}</span> words left</p>
+			<p>You have {{15 - wordcount.split(' ').length}} words left</p>
 
 		</form>
 

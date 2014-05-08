@@ -10,7 +10,7 @@
 	{
 		echo"<script type='text/javascript'>alert('New user registered!');</script>";
 	} ?>
-	<h3>Logged in as 
+	<h3 style='float:right;'>Logged in as 
 		<?php 
 		$current_user = $this->session->userdata('current_user');
 		echo $current_user['name'];
