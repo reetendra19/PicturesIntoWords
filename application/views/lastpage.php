@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>AL414 Checkpoint</title>
+	<title>Pictures Into Words</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -20,12 +20,15 @@
 			echo $current_user['name'];
 			?>
 		</h1>
-		<h3>What would you like to do next?</h3>
+		<h3>Thanks for helping with our site development.</h3>
+		<p>Your answers have been collected and will be reviewed to learn about how people are responding to this process. We hope you've enjoyed your experience.</p>
+		<h4>What would you like to do next?</h4>
+		
 		<ul id='checkpoint'>
-			<a href="/controllers/logout"><li>Advance to the next level</li></a>
-			<a href="/controllers/logout"><li>Do more on this level</li></a>
+			<a href="/controllers/introduction"><li>Do it again</li></a>
 			<a href="/controllers/logout"><li>Log out</li></a>
 		</ul>
+		
 	</div>
 
 

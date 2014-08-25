@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>AL414 Instructions</title>
+	<title>Pictures Into Words</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body>
@@ -35,7 +35,8 @@
 		<p>
 			Are you ready to begin?
 		</p>
-		<button><a href="/controllers/exercise1">Start now</a></button>
+		<!-- <a href="/controllers/exercise1"><button>Start now</button></a> -->
+		<a class='button' href="/controllers/exercise1">Start now</a>
 	</div>
 
 </body>

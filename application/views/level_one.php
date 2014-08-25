@@ -2,7 +2,7 @@
 <html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
-	<title>AL414 Level 1</title>
+	<title>Pictures Into Words</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
@@ -98,7 +98,7 @@
 		<span id='piccount'>1</span>
 		 of 10
 	</h5>
-	<h1>Level One</h1>
+	<h1><small>Pictures Into Words</small></h1>
 
 	<div class='container' ng-controller="angController">
 	<!-- IMAGE DISPLAY: increments until 10th time -->
@@ -132,5 +132,6 @@
 
 		</div>
 	</div>
+	<h5 style='float:right;'><a href="/controllers/logout">Log out</a></h5>
 </body>
 </html>

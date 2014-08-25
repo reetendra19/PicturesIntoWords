@@ -103,7 +103,6 @@ class Controllers extends CI_Controller
 
 			$data['default_descr'] = $default_descr;
 		
-
 			if($this->session->userdata('counter') == 10)
 			{
 				$data['complete'] = TRUE;
@@ -204,7 +203,7 @@ class Controllers extends CI_Controller
 		$data['picture_id'] = $this->input->post('picture_id_10');
 		$this->user->updatevote($data);
 
-		echo "<script type='text/javascript'>confirm('Submit your work for grading?')</script>";
+		// echo "<script type='text/javascript'>confirm('Submit your work for grading?')</script>";
 
 		// $this->load->view('/controllers/checkpoint'));
 		// $this->checkpoint();
@@ -215,7 +214,7 @@ class Controllers extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		$this->index();
-		echo "<script type='text/javascript'>alert('Construction in progress - thanks for trying out the site so far.')</script>";
+		// echo "<script type='text/javascript'>alert('Construction in progress - thanks for trying out the site so far.')</script>";
 	}
 }
 ?>
