@@ -11,6 +11,7 @@
 <body>
 	<div class='container'>
 		<h1>Pictures Into Words</h1>
+		
 		<div class='frontpage'>
 			<h2>New to us?  Register here:</h2>
 			<form action='/controllers/register' method='post'>
@@ -66,8 +67,8 @@
 				?>
 			</div>
 		</div>
+		
+		<p>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='button' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
 	</div>
-	<p>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right
-'></span> <a class='button' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
 </body>
 </html>

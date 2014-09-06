@@ -5,12 +5,6 @@
 	<title>Pictures Into Words</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function()
-		{
-
-		}
-	</script>
 </head>
 <body>
 	<div class='container'>
