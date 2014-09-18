@@ -67,8 +67,20 @@
 				?>
 			</div>
 		</div>
+
+		<div class='frontpage'>
+			<p style='display:inline; font-size:1.3em'>Explore the site as a guest user: </p>
+			<form style='display:inline' action='/controllers/login' method='post'>
+				<input type='hidden' name='email' value='guest@guest.com'>
+				<input type='hidden' name='password' value='password'>
+				<input type='submit' name='login' value='Enter'>
+			</form>
+		</div>
+
+		<div style='padding:20px'>
+			<p id='beta-message'>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='btn' style='background:#4775A3; color:white' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
+		</div>
 		
-		<p>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='button' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
 	</div>
 </body>
 </html>

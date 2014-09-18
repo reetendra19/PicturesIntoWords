@@ -52,6 +52,11 @@ h4{
 	margin:10px 20px;
 }
 
+#beta-message {
+	font-size: 1.8em;
+	color:#4775A3;
+}
+
 #instructions{
 	font-size: 1.2em;
 }
@@ -103,10 +108,10 @@ ul{
     list-style-image: url('/assets/img/dot_painted_spinning_10.gif');
 }
 
-.button	{
+.button {
 	align-items: flex-start;
 	text-align: center;
-	cursor: default;
+	cursor: pointer;
 	color: buttontext;
 	padding: 2px 6px 3px;
 	border: 2px outset buttonface;
