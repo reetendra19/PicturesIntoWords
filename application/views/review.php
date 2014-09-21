@@ -67,6 +67,6 @@
 			<td><input class='submitter' type='submit' name='save' value='Save'></td>
 		</table>
 	</form>
-
+	<h5 style='float:right;'><a href="/controllers/logout">Log out</a></h5>
 </body>
 </html>

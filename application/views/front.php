@@ -13,6 +13,41 @@
 		<h1>Pictures Into Words</h1>
 		
 		<div class='frontpage'>
+			<h2>Log in:</h2>
+			<form action='/controllers/login' method='post'>
+				<table>
+					<tbody>
+						<tr>
+							<td>Email:</td><td><input type='text' name='email'></td>
+						</tr>
+						<tr>
+							<td>Password:</td><td><input type='password' name='password'></td>
+						</tr>
+					</tbody>
+				</table>
+				<input class='submitter' type='submit' name='login' value='Log In'>
+			</form>
+			<div class='red'>
+				<?php 
+				if($this->session->flashdata('loginerrors'))
+				{
+					echo $this->session->flashdata('loginerrors');
+				}
+				?>
+			</div>
+			<div>
+				<br>
+				<br>
+				<p style='display:inline; font-size:1.3em'>Explore the site as a guest user: </p>
+				<form style='display:inline' action='/controllers/login' method='post'>
+					<input type='hidden' name='email' value='guest@guest.com'>
+					<input type='hidden' name='password' value='password'>
+					<input type='submit' name='login' value='Enter'>
+				</form>
+			</div>
+		</div>
+
+		<div class='frontpage'>
 			<h2>New to us?  Register here:</h2>
 			<form action='/controllers/register' method='post'>
 				<table>
@@ -43,40 +78,6 @@
 			</div>
 		</div>
 		
-		<div class='frontpage'>
-			<h2>Already registered?  Log in:</h2>
-			<form action='/controllers/login' method='post'>
-				<table>
-					<tbody>
-						<tr>
-							<td>Email:</td><td><input type='text' name='email'></td>
-						</tr>
-						<tr>
-							<td>Password:</td><td><input type='password' name='password'></td>
-						</tr>
-					</tbody>
-				</table>
-				<input class='submitter' type='submit' name='login' value='Log In'>
-			</form>
-			<div class='red'>
-				<?php 
-				if($this->session->flashdata('loginerrors'))
-				{
-					echo $this->session->flashdata('loginerrors');
-				}
-				?>
-			</div>
-		</div>
-
-		<div class='frontpage'>
-			<p style='display:inline; font-size:1.3em'>Explore the site as a guest user: </p>
-			<form style='display:inline' action='/controllers/login' method='post'>
-				<input type='hidden' name='email' value='guest@guest.com'>
-				<input type='hidden' name='password' value='password'>
-				<input type='submit' name='login' value='Enter'>
-			</form>
-		</div>
-
 		<div style='padding:20px'>
 			<p id='beta-message'>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='btn' style='background:#4775A3; color:white' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
 		</div>

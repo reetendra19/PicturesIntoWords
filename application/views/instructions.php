@@ -38,6 +38,7 @@
 		<!-- <a href="/controllers/exercise1"><button>Start now</button></a> -->
 		<a class='button' href="/controllers/exercise1">Start now</a>
 	</div>
+	<h5 style='float:right;'><a href="/controllers/logout">Log out</a></h5>
 
 </body>
 </html>
