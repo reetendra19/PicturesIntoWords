@@ -79,7 +79,7 @@
 		</div>
 		
 		<div style='padding:20px'>
-			<p id='beta-message'>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='btn' style='background:#4775A3; color:white' href='http://floating-gorge-1378.herokuapp.com/'>Go</a></p>
+			<p id='beta-message'>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='btn' style='background:#4775A3; color:white' href='http://afternoon-brook-6624.herokuapp.com/'>Go</a></p>
 		</div>
 		
 	</div>
