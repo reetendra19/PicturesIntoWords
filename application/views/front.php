@@ -12,6 +12,7 @@
 	<div class='container'>
 		<h1>Pictures Into Words</h1>
 		
+	<!--
 		<div class='frontpage'>
 			<h2>Log in:</h2>
 			<form action='/controllers/login' method='post'>
@@ -35,10 +36,11 @@
 				}
 				?>
 			</div>
+	-->
 			<div>
 				<br>
 				<br>
-				<p style='display:inline; font-size:1.3em'>Explore the site as a guest user: </p>
+				<p style='display:inline; font-size:1.3em'>Explore the PHP site as a guest user: </p>
 				<form style='display:inline' action='/controllers/login' method='post'>
 					<input type='hidden' name='email' value='guest@guest.com'>
 					<input type='hidden' name='password' value='password'>
@@ -47,6 +49,7 @@
 			</div>
 		</div>
 
+	<!--
 		<div class='frontpage'>
 			<h2>New to us?  Register here:</h2>
 			<form action='/controllers/register' method='post'>
@@ -77,6 +80,7 @@
 				?>
 			</div>
 		</div>
+	-->
 		
 		<div style='padding:20px'>
 			<p id='beta-message'>Be a Beta Tester! Try out our new version <span class='glyphicon glyphicon-arrow-right'></span> <a class='btn' style='background:#4775A3; color:white' href='http://afternoon-brook-6624.herokuapp.com/'>Go</a></p>

@@ -10,9 +10,7 @@
 		$(document).ready(function()
 		{
 			var counter = 1;
-
 			$('#preference').hide();
-
 			$('#entry').submit(function()
 			{	
 				// if string is less than 15 words
